@@ -343,6 +343,10 @@ div#global-loader,
     display: flex
 }
 
+.dropdown-menu {
+  z-index: 1050 !important;
+}
+
 .profile-set .profile-top .profile-contentimg,
 .profile-set .profile-top,
 .order-list,
@@ -7127,13 +7131,11 @@ span.select2-container.select2-container--default.select2-container--open {
 .badges.bg-lightgrey {
     background: #637381
 }
-
-.badges.bg-lightblue {
-    background: #0d6efd
+.badges.bg-darkblue {
+    background: #0d57d0;
 }
-
-.badges.bg-lightpink {
-    background: #e83e8c
+.badges.bg-darkpink {
+    background: #ef1cbc;
 }
 
 .add-icon span,
