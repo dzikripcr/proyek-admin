@@ -30,7 +30,7 @@ class CreateTahapanDummy extends Seeder
         $proyeks = DB::table('proyek')->get();
 
         foreach ($proyeks as $proyek) {
-            // Setiap proyek akan memiliki 4 tahapan (jumlah tetap)
+            // Setiap proyek akan memiliki 1 tahapan (jumlah tetap)
             $tahapanProyek = [];
             $currentDate   = $faker->dateTimeBetween($proyek->tahun . '-01-01', $proyek->tahun . '-06-30');
 
