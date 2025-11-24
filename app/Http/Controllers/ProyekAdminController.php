@@ -12,7 +12,12 @@ class ProyekAdminController extends Controller
     public function index(Request $request)
     {
         $filterableColumns = ['tahun'];
-        $data['dataProyek'] = Proyek::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
+        $searchableColumns = ['nama_proyek','lokasi','sumber_dana'];
+        $data['dataProyek'] = Proyek::filter($request, $filterableColumns)
+                                ->search($request,$searchableColumns)
+                                ->paginate(10)
+                                ->onEachSide(2)
+                                ->withQueryString();
         return view('pages.proyek.index', $data);
     }
 
