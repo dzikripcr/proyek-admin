@@ -143,7 +143,7 @@
                             </tbody>
                         </table>
                         <div class="mt-3">
-                            {{ $dataTahapan->links('pagination::bootstrap-5') }}
+                            {{ $dataTahapan ->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>

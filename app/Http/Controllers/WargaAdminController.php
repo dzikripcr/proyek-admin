@@ -10,9 +10,10 @@ class WargaAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['dataWarga'] = Warga::paginate(10)->onEachSide(2);
+        $filterableColumns = ['jenis_kelamin'];
+        $data['dataWarga'] = Warga::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
         return view('pages.warga.index', $data);
     }
 
