@@ -13,7 +13,12 @@ class WargaAdminController extends Controller
     public function index(Request $request)
     {
         $filterableColumns = ['jenis_kelamin'];
-        $data['dataWarga'] = Warga::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
+        $searchableColumns = ['nama','agama','pekerjaan'];
+        $data['dataWarga'] = Warga::filter($request, $filterableColumns)
+                                ->search($request,$searchableColumns)
+                                ->paginate(10)
+                                ->onEachSide(2)
+                                ->withQueryString();
         return view('pages.warga.index', $data);
     }
 

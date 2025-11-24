@@ -28,11 +28,27 @@
                                 <div class="col-md-2">
                                     <select name="jenis_kelamin" class="form-select" onchange="this.form.submit()">
                                         <option value="">All</option>
-                                        <option value="Laki-laki" {{ request('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                                        <option value="Laki-laki"
+                                            {{ request('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
                                         </option>
-                                        <option value="Perempuan" {{ request('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                                        <option value="Perempuan"
+                                            {{ request('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan
                                         </option>
                                     </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control" id="exampleInputIconRight"
+                                            value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                                        <button type="submit" class="input-group-text" id="basic-addon2">
+                                            <img src="{{ asset('assets-admin/img/icons/search-white.svg') }}"
+                                                alt="img">
+                                        </button>
+                                        @if (request('search'))
+                                            <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
+                                                class="btn btn-outline-secondary ml-3" id="clear-search"> Clear</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </form>
