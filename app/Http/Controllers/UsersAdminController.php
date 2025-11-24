@@ -12,7 +12,7 @@ class UsersAdminController extends Controller
      */
     public function index()
     {
-        $data['dataUser'] = User::all();
+        $data['dataUser'] = User::paginate(10)->onEachSide(2);
         return view('pages.user.index', $data);
     }
 
