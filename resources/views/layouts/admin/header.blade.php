@@ -188,7 +188,7 @@
                                 <span class="status online"></span></span>
                             <div class="profilesets">
                                 <h6>{{ Auth::user()->name }}</h6>
-                                <h5>Admin</h5>
+                                <h5>{{ Auth::user()->role }}</h5>
                             </div>
                         </div>
                         <hr class="m-0">
