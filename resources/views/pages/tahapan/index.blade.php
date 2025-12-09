@@ -25,7 +25,7 @@
                     <div class="table-responsive">
                         <form method="GET" action="{{ route('tahapan.index') }}" class="mb-3">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <select name="nama_tahap" class="form-select" onchange="this.form.submit()">
                                         <option value="">All</option>
                                         <option value="Perencanaan Awal" {{ request('nama_tahap') == 'Perencanaan Awal' ? 'selected' : '' }}>Perencanaan Awal

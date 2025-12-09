@@ -8470,38 +8470,163 @@ span.select2-container.select2-container--default.select2-container--open {
     }
 }
 
+.footer-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
 .footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #e9ecef;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    font-size: 0.875rem;
-    color: #6c757d;
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 0 !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 10;
 }
 
-.footer a {
-    color: #6c757d;
-    text-decoration: none;
+/* Pastikan footer tidak tertutup sidebar */
+.footer-wrapper {
+    width: 100%;
+    margin-left: 0;
 }
 
-.footer a:hover {
-    color: #495057;
+/* Override untuk Bootstrap jika ada */
+.container-fluid.footer-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
 }
 
-.social-icons a {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: #e9ecef;
-    text-align: center;
-    line-height: 32px;
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .footer-wrapper {
+        margin-left: 0;
+        transition: margin-left 0.3s ease;
+    }
+
+    /* Jika ada sidebar dengan lebar 250px */
+    .has-sidebar .footer-wrapper {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .footer-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .footer .row {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+.border-top {
+    border-top: 2px solid #e2e8f0 !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+h4, h5 {
+    font-weight: 600;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
 }
 
-.social-icons a:hover {
-    background-color: #dee2e6;
-    transform: translateY(-2px);
+.social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-muted {
+    color: #64748b !important;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.list-unstyled li a {
+    transition: all 0.2s ease;
+    padding: 3px 0;
+    display: block;
+}
+
+.list-unstyled li a:hover {
+    color: #3b82f6 !important;
+    transform: translateX(5px);
+}
+
+/* Responsive Design untuk konten footer */
+@media (max-width: 768px) {
+    .footer .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .footer .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .border-md-none {
+        border: none !important;
+    }
+
+    .text-center-mobile {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        display: flex;
+    }
+
+    .footer .col-lg-4,
+    .footer .col-lg-2,
+    .footer .col-lg-3 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer .row.py-4 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .footer .card-body {
+        padding: 1rem !important;
+    }
+
+    .footer .d-flex.flex-column.flex-md-row {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .footer .d-flex.align-items-center {
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
 }
 
 .whatsapp-logo {

@@ -12,8 +12,8 @@ class UsersAdminController extends Controller
      */
     public function index(Request $request)
     {
-        $filterableColumns = ['email'];
-        $searchableColumns = ['name','email','password'];
+        $filterableColumns = ['role'];
+        $searchableColumns = ['name','email'];
         $data['dataUser'] = User::filter($request, $filterableColumns)
                                 ->search($request,$searchableColumns)
                                 ->paginate(10)

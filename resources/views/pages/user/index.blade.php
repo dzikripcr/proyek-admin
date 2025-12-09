@@ -26,13 +26,16 @@
                         <form method="GET" action="{{ route('user.index') }}" class="mb-3">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <select name="email" class="form-select" onchange="this.form.submit()">
+                                    <select name="role" class="form-select" onchange="this.form.submit()">
                                         <option value="">All</option>
-                                        <option value="@gmail.com" {{ request('email') == '@gmail.com' ? 'selected' : '' }}>
-                                            @gmail.com
+                                        <option value="Super Admin" {{ request('role') == 'Super Admin' ? 'selected' : '' }}>
+                                            Super Admin
                                         </option>
-                                        <option value="@yahoo.com" {{ request('email') == '@yahoo.com' ? 'selected' : '' }}>
-                                            @yahoo.com
+                                        <option value="Admin" {{ request('role') == 'Admin' ? 'selected' : '' }}>
+                                            Admin
+                                        </option>
+                                        <option value="Company" {{ request('role') == 'Company' ? 'selected' : '' }}>
+                                            Company
                                         </option>
                                     </select>
                                 </div>

@@ -15,7 +15,6 @@ class CreateProyekDummy extends Seeder
     {
         $faker = Faker::create('id_ID');
 
-        // Daftar sumber dana
         $sumberDana = [
             'APBN',
             'APBD Provinsi',
@@ -27,7 +26,6 @@ class CreateProyekDummy extends Seeder
             'Hibah'
         ];
 
-        // Daftar jenis proyek
         $jenisProyek = [
             'Pembangunan Jalan',
             'Pembangunan Jembatan',
@@ -45,18 +43,30 @@ class CreateProyekDummy extends Seeder
             'Program Pemberdayaan Masyarakat'
         ];
 
-        foreach (range(1, 100) as $index) {
-            $tahun = $faker->numberBetween(2020, 2025);
-            $anggaran = $faker->randomFloat(2, 100000000, 5000000000);
+        // 👉 Fungsi pembuat paragraf "Bahasa Indonesia" secara generatif
+        $generateDeskripsi = function() use ($faker) {
+            $kalimat = [
+                'Proyek ini bertujuan untuk meningkatkan kualitas infrastruktur di wilayah tersebut.',
+                'Pembangunan dilakukan untuk memenuhi kebutuhan masyarakat dan memperbaiki akses layanan publik.',
+                'Pelaksanaan kegiatan ini diharapkan dapat memberikan dampak positif bagi pertumbuhan ekonomi lokal.',
+                'Program ini merupakan bagian dari upaya pemerintah dalam meningkatkan kesejahteraan masyarakat.',
+                'Kegiatan dilakukan secara bertahap dengan mempertimbangkan kondisi geografis dan kebutuhan lapangan.',
+                'Hasil pembangunan nantinya diharapkan dapat dimanfaatkan secara optimal oleh masyarakat.',
+                'Proyek ini juga memperhatikan aspek lingkungan agar pembangunan tetap berkelanjutan.'
+            ];
 
+            return $faker->randomElement($kalimat).' '.$faker->randomElement($kalimat);
+        };
+
+        foreach (range(1, 100) as $index) {
             DB::table('proyek')->insert([
                 'kode_proyek' => 'PRJ' . str_pad($index, 4, '0', STR_PAD_LEFT),
                 'nama_proyek' => $faker->randomElement($jenisProyek) . ' ' . $faker->city,
-                'tahun' => $tahun,
+                'tahun' => $faker->numberBetween(2020, 2025),
                 'lokasi' => 'Kelurahan ' . $faker->city . ', Kecamatan ' . $faker->citySuffix,
-                'anggaran' => $anggaran,
+                'anggaran' => $faker->randomFloat(2, 100000000, 5000000000),
                 'sumber_dana' => $faker->randomElement($sumberDana),
-                'deskripsi' => $faker->paragraph(3),
+                'deskripsi' => $generateDeskripsi(), // ⚡ AUTO DESKRIPSI INDONESIA
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
