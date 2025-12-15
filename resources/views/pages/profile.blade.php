@@ -20,9 +20,7 @@
 
                             {{-- LEFT COLUMN --}}
                             <div class="col-lg-4 text-center border-end">
-                                <img src="{{ Auth::user()->profile_picture
-                                    ? asset('storage/' . Auth::user()->profile_picture)
-                                    : asset('assets-admin/img/profiles/avator1.jpg') }}"
+                                <img src="{{asset('assets-admin/img/FOTO GUA.jpg')}}"
                                     class="rounded-circle mb-3" width="160" height="160" style="object-fit: cover;"
                                     alt="Profile">
 
@@ -35,10 +33,10 @@
                                 </p>
 
                                 {{-- Social Media --}}
-                                <div class="d-flex justify-content-center gap-3 mt-3">
-                                    <a href="#" class="text-dark fs-4"><i class="fab fa-github"></i></a>
-                                    <a href="#" class="text-primary fs-4"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" class="text-danger fs-4"><i class="fab fa-instagram"></i></a>
+                                <div class="social-links">
+                                    <a href="https://github.com/dzikripcr" class="text-dark fs-4 btn btn-light btn-sm rounded-circle me-2 shadow-sm"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/dzikri-maulana-952134381" class="text-primary fs-4 btn btn-light btn-sm rounded-circle me-2 shadow-sm"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://www.instagram.com/dziikrri._08?igsh=MXEyeW52bW43NHkyOA==" class="text-danger fs-4 btn btn-light btn-sm rounded-circle me-2 shadow-sm"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
 
