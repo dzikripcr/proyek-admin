@@ -21,7 +21,9 @@
                             <span><img src="{{ asset('assets-admin/img/icons/dash2.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
-                            <h5>Rp.<span class="counters">400.000.385.00</span></h5>
+                            <h5>
+                                Rp.<span class="counters">{{ number_format($totalAnggaran, 2, ',', '.') }}</span>
+                            </h5>
                             <h6>Total Anggaran</h6>
                         </div>
                     </div>
@@ -52,7 +54,7 @@
                     <div class="dash-count">
                         <div class="dash-counts">
                             <h4>100</h4>
-                            <h5>Customers</h5>
+                            <h5>Warga</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="user"></i>
@@ -63,7 +65,7 @@
                     <div class="dash-count das1">
                         <div class="dash-counts">
                             <h4>100</h4>
-                            <h5>Suppliers</h5>
+                            <h5>Proyek</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="user-check"></i>
@@ -74,7 +76,7 @@
                     <div class="dash-count das2">
                         <div class="dash-counts">
                             <h4>100</h4>
-                            <h5>Purchase Invoice</h5>
+                            <h5>Lokasi Proyek</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="file-text"></i>
@@ -85,7 +87,7 @@
                     <div class="dash-count das3">
                         <div class="dash-counts">
                             <h4>105</h4>
-                            <h5>Sales Invoice</h5>
+                            <h5>Kontraktor</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="file"></i>

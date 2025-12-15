@@ -35,18 +35,23 @@
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-dark">
+                            <a href="{{ route('user.index') }}" class="text-decoration-none text-dark">
+                                <i class="fas fa-user me-2 text-primary"></i>Data User
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{ route('warga.index') }}" class="text-decoration-none text-dark">
                                 <i class="fas fa-users me-2 text-primary"></i>Data Warga
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <i class="fas fa-project-diagram me-2 text-primary"></i>Proyek
+                            <a href="{{ route('proyek.index') }}" class="text-decoration-none text-dark">
+                                <i class="fe fe-map me-2 text-primary"></i>Proyek
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <i class="fas fa-user-cog me-2 text-primary"></i>Pengguna
+                        <li class="mb-2">
+                            <a href="{{ route('tahapan.index') }}" class="text-decoration-none text-dark">
+                                <i class="fas fa-project-diagram me-2 text-primary"></i>Tahapan Proyek
                             </a>
                         </li>
                     </ul>
@@ -57,11 +62,11 @@
                     <h5 class="fw-bold mb-3 text-dark">Hubungi Kami</h5>
                     <div class="mb-3">
                         <i class="fas fa-envelope text-primary me-2"></i>
-                        <span class="text-dark">admin@desamonitor.id</span>
+                        <span class="text-dark">dzikri24si@mahasiswa.pcr.ac.id</span>
                     </div>
                     <div class="mb-4">
                         <i class="fas fa-phone text-primary me-2"></i>
-                        <span class="text-dark">+62 812 3456 7890</span>
+                        <span class="text-dark">0896-5322-1383</span>
                     </div>
 
                     <h5 class="fw-bold mb-3 text-dark">Media Sosial</h5>

@@ -19,6 +19,10 @@ class DashboardAdminController extends Controller
         $data['dataWarga'] = Warga::all();
         $data['dataProyek'] = Proyek::all();
         $data['dataUser'] = User::all();
+        
+        // Hitung total anggaran
+        $data['totalAnggaran'] = Proyek::sum('anggaran');
+
         if (!Auth::check()) {
 		       //Redirect ke halaman dashboard
                return redirect()->route('login');

@@ -195,8 +195,7 @@
                                                     </a>
                                                     <form
                                                         action="{{ route('proyek.hapusDokumen', [$proyek->proyek_id, $dokumen->media_id]) }}"
-                                                        method="POST" class="d-inline"
-                                                        onsubmit="return confirm('Yakin ingin menghapus dokumen ini?')">
+                                                        method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-outline-danger border"

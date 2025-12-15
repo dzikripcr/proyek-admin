@@ -21,6 +21,7 @@ class ProyekAdminController extends Controller
             ->paginate(10)
             ->onEachSide(2)
             ->withQueryString();
+
         return view('pages.proyek.index', $data);
     }
 
