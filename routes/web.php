@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\UsersAdminController;
 use App\Http\Controllers\WargaAdminController;
 use App\Http\Controllers\ProyekAdminController;
+use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TahapanProyekAdminController;
 
@@ -52,4 +53,5 @@ Route::group(['middleware' => ['checkrole:Super Admin']], function () {
     Route::get('user', [UsersAdminController::class,'index'])->name('user.index');
 });
 
-
+//route mengarah ke halaman profile pengembang
+Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');

@@ -8442,13 +8442,6 @@ span.select2-container.select2-container--default.select2-container--open {
     /* Warna saat hover */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .login-img {
     flex: 1;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -8490,12 +8483,6 @@ span.select2-container.select2-container--default.select2-container--open {
     width: 100% !important;
     position: relative;
     z-index: 10;
-}
-
-/* Pastikan footer tidak tertutup sidebar */
-.footer-wrapper {
-    width: 100%;
-    margin-left: 0;
 }
 
 /* Override untuk Bootstrap jika ada */
@@ -8755,9 +8742,11 @@ h5 {
 .avatar-placeholder {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .password-field {
     font-family: 'Courier New', monospace;
 }
+
 .password-text {
     letter-spacing: 2px;
 }
@@ -8776,4 +8765,37 @@ h5 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Profile devp. di footer */
+.profile-box {
+    background: #fdfefe; /* BUKAN putih murni */
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 1.5px solid #dee2e6; /* lebih tegas */
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    max-width: 320px;
+}
+
+.profile-box .btn {
+    background: linear-gradient(135deg, #0d6efd, #4dabf7);
+    border: none;
+}
+
+.profile-box .btn:hover {
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.35);
+}
+
+.profile-icon-sm {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #0d6efd, #4dabf7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
 }

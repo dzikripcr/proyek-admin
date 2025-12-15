@@ -197,7 +197,7 @@
                         <hr class="m-0">
                         <a class="dropdown-item" href=""> <i class="me-2" data-feather="clock"></i>
                             {{ session('last_login') }}</a>
-                        <a class="dropdown-item" href=""> <i class="me-2" data-feather="user"></i>
+                        <a class="dropdown-item" href="{{route('profile')}}"> <i class="me-2" data-feather="user"></i>
                             My
                             Profile</a>
                         <a class="dropdown-item" href=""><i class="me-2"
@@ -221,7 +221,7 @@
                     <span class="ps-2 fw-semibold text-primary">Account</span>
                 </a>
                 <div class="dropdown-menu menu-drop-user">
-                    <a class="dropdown-item" href="{{ route('login') }}">
+                    <a class="dropdown-item" href="{{ route('auth.login') }}">
                         <i class="me-2" data-feather="log-in"></i> Login
                     </a>
                     <a class="dropdown-item" href="{{ route('register') }}">

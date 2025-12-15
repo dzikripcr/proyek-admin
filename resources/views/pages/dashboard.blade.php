@@ -4,6 +4,7 @@
     <div class="page-wrapper">
         <div class="content">
             <div class="row">
+                {{-- Total Pembayaran --}}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget">
                         <div class="dash-widgetimg">
@@ -15,6 +16,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Total Anggaran --}}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash1">
                         <div class="dash-widgetimg">
@@ -28,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Total Pemasukan --}}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash2">
                         <div class="dash-widgetimg">
@@ -39,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Total Pengeluaran --}}
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash3">
                         <div class="dash-widgetimg">
@@ -50,6 +54,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Jumlah Warga --}}
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count">
                         <div class="dash-counts">
@@ -61,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Jumlah Proyek --}}
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das1">
                         <div class="dash-counts">
@@ -72,6 +78,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Jumlah Lokasi --}}
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das2">
                         <div class="dash-counts">
@@ -83,6 +90,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Jumlah Kontraktor --}}
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das3">
                         <div class="dash-counts">
@@ -96,6 +104,7 @@
                 </div>
             </div>
             <div class="row">
+                {{-- Grafik --}}
                 <div class="col-lg-7 col-sm-12 col-12 d-flex">
                     <div class="card flex-fill">
                         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
@@ -134,6 +143,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Tahapan Proyek --}}
                 <div class="col-lg-5 col-sm-12 col-12 d-flex">
                     <div class="card flex-fill">
                         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
@@ -179,6 +189,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Data Warga --}}
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Warga</h4>
@@ -236,6 +247,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Data Proyek --}}
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Proyek</h4>
@@ -289,6 +301,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Data User --}}
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data User</h4>
@@ -296,37 +309,50 @@
                         <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>
-                                        No.
-                                    </th>
-                                    <th>
-                                        Username
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        Password
-                                    </th>
-                                    <th>
-                                        Role
-                                    </th>
+                                    <th>No.</th>
+                                    <th>Foto</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Role</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($dataUser as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>
+                                            @if ($item->profile_picture)
+                                                <div class="position-relative">
+                                                    <img src="{{ asset('storage/' . $item->profile_picture) }}"
+                                                        class="rounded-circle border border-3 border-white shadow-sm"
+                                                        style="width: 48px; height: 48px; object-fit: cover; background: #f8f9fa;">
+                                                </div>
+                                            @else
+                                                <div class="position-relative">
+                                                    <div class="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 48px; height: 48px; background: ;">
+                                                        <i data-feather="user" style="width: 32px; height: 32px;"></i>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
-                                        <td>{{ $item->password }}</td>
-                                        <td>@php
-                                            $roleColors = [
-                                                'Super Admin' => 'bg-danger',
-                                                'Admin' => 'bg-success',
-                                                'Company' => 'bg-info',
-                                            ];
-                                        @endphp
+                                        <td>
+                                            <div class="password-field">
+                                                <span class="password-text">••••••••</span>
+                                                <small class="text-muted d-block">Hashed</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @php
+                                                $roleColors = [
+                                                    'Super Admin' => 'bg-danger',
+                                                    'Admin' => 'bg-success',
+                                                    'Company' => 'bg-info',
+                                                ];
+                                            @endphp
                                             <span class="badges {{ $roleColors[$item->role] ?? 'bg-secondary' }}">
                                                 {{ $item->role }}
                                             </span>

@@ -9,17 +9,29 @@
                         <div class="bg-primary rounded-3 p-3 me-3 shadow-sm">
                             <i class="fas fa-hard-hat text-white fs-4"></i>
                         </div>
+
                         <div>
                             <h4 class="fw-bold mb-1 text-dark">ProyekDesa Track</h4>
-                            <p class="text-muted mb-3">
+                            <p class="text-muted mb-4">
                                 Sistem Monitoring Proyek Pembangunan Desa
                             </p>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-copyright text-muted me-2"></i>
-                                <span class="text-muted">
-                                    <script>document.write(new Date().getFullYear())</script>
-                                    Semua Hak Dilindungi.
-                                </span>
+
+                            {{-- PROFILE PENGEMBANG --}}
+                            <div class="bg-white border rounded-4 p-4 mt-4 shadow-sm">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-user-circle text-primary fs-3 me-3"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">Profile Pengembang</h6>
+                                        <small class="text-muted">Lihat detail pembuat sistem</small>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <a href="{{ route('profile') }}" class="btn btn-warning btn-sm rounded-pill px-4">
+                                        Lihat Profile
+                                        <i class="fas fa-arrow-right ms-1"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,22 +139,15 @@
             <div class="row py-3">
                 <div class="col-12">
                     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                        <!-- Informasi Pengembang -->
-                        <div class="text-center text-md-end mb-2 mb-md-0">
-                            <div class="d-flex align-items-center justify-content-center justify-content-md-end flex-wrap">
-                                <i class="fas fa-laptop-code text-primary me-2"></i>
-                                <span class="text-dark">
-                                    Dikembangkan oleh
-                                    <a href="" class="text-decoration-none fw-bold text-primary">
-                                        Dzikri Maulana
-                                    </a>
-                                    <span class="text-muted mx-2">|</span>
-                                    <span class="text-dark">
-                                        NIM:
-                                        <a href="" class="text-decoration-none fw-bold text-primary">
-                                            2457301037
-                                        </a>
-                                    </span>
+                        <!-- Copyright -->
+                        <div class="mb-2 mb-md-0">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <i class="fas fa-copyright text-muted me-2"></i>
+                                <span class="text-muted">
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>
+                                    Semua Hak Dilindungi.
                                 </span>
                             </div>
                         </div>
@@ -152,12 +157,17 @@
                             <span class="text-muted">|</span>
                         </div>
 
-                        <!-- Jam Operasional -->
-                        <div class="mb-2 mb-md-0">
-                            <div class="d-flex align-items-center justify-content-center">
-                                <i class="fas fa-clock text-primary me-2"></i>
+                        <!-- Informasi Pengembang -->
+                        <div class="text-center text-md-end mb-2 mb-md-0">
+                            <div
+                                class="d-flex align-items-center justify-content-center justify-content-md-end flex-wrap">
+                                <i class="fas fa-laptop-code text-primary me-2"></i>
                                 <span class="text-dark">
-                                    Senin - Jumat <strong>08:00 - 16:00 WIB</strong>
+                                    Dikembangkan oleh
+                                    <a href="{{ route('profile') }}"
+                                        class="text-decoration-none fw-bold text-primary">
+                                        Dzikri Maulana
+                                    </a>
                                 </span>
                             </div>
                         </div>
