@@ -35,8 +35,8 @@
                                         <option value="Admin" {{ request('role') == 'Admin' ? 'selected' : '' }}>
                                             Admin
                                         </option>
-                                        <option value="Company" {{ request('role') == 'Company' ? 'selected' : '' }}>
-                                            Company
+                                        <option value="Guest" {{ request('role') == 'Guest' ? 'selected' : '' }}>
+                                            Guest
                                         </option>
                                     </select>
                                 </div>
