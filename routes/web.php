@@ -12,20 +12,26 @@ use App\Http\Controllers\LokasiProyekAdminController;
 use App\Http\Controllers\ProgresProyekAdminController;
 use App\Http\Controllers\TahapanProyekAdminController;
 
+//Dashboard Admin Routes
+Route::resource('dashboard', DashboardAdminController::class)->middleware('checkislogin');
+
+//tahapan proyek admin routes
+Route::resource('tahapan', TahapanProyekAdminController::class)->middleware('checkislogin');
+
+// Kontraktor Proyek Routes
+Route::resource('kontraktor', KontraktorAdminController::class)->middleware('checkislogin');
+
+// Progres Proyek Routes
+Route::resource('progres', ProgresProyekAdminController::class)->middleware('checkislogin');
+
 // Warga Admin Routes
 Route::resource('warga', WargaAdminController::class)->middleware('checkislogin');
 
 // Proyek Admin Routes
 Route::resource('proyek', ProyekAdminController::class)->middleware('checkislogin');
 
-//Dashboard Admin Routes
-Route::resource('dashboard', DashboardAdminController::class)->middleware('checkislogin');
-
-//users admin routes
-Route::resource('user', UsersAdminController::class)->middleware('checkislogin');
-
-//tahapan proyek admin routes
-Route::resource('tahapan', TahapanProyekAdminController::class)->middleware('checkislogin');
+//route mengarah ke halaman profile pengembang
+Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');
 
 // Auth Admin Routes
 Route::get('/', [AuthAdminController::class, 'index'])->name('login');
@@ -45,25 +51,22 @@ Route::prefix('proyek/{proyek}')->group(function () {
 Route::get('logout', [AuthAdminController::class, 'logout'])->name('auth.logout');
 
 //route middleware checkrole Admin
-Route::group(['middleware' => ['checkrole:Admin']], function () {
-    Route::get('proyek', [ProyekAdminController::class, 'index'])->name('proyek.index');
-    Route::get('tahapan', [TahapanProyekAdminController::class, 'index'])->name('tahapan.index');
-    Route::get('warga', [WargaAdminController::class, 'index'])->name('warga.index');
-    Route::get('progres', [ProgresProyekAdminController::class, 'index'])->name('progres.index');
-    Route::get('lokasi', [LokasiProyekAdminController::class, 'index'])->name('lokasi.index');
-    Route::get('kontraktor', [KontraktorAdminController::class, 'index'])->name('kontraktor.index');
+Route::group(['middleware' => ['checkrole:Admin, Super Admin']], function () {
+    Route::resource('proyek', ProyekAdminController::class);
+    Route::resource('tahapan', TahapanProyekAdminController::class);
+    Route::resource('warga', WargaAdminController::class);
+    Route::resource('progres', ProgresProyekAdminController::class);
+    Route::resource('lokasi', LokasiProyekAdminController::class);
+    Route::resource('kontraktor', KontraktorAdminController::class);
 });
+
+//users admin routes
+Route::resource('user', UsersAdminController::class)->middleware('checkislogin');
 
 //route middleware checkrole Super admin
 Route::group(['middleware' => ['checkrole:Super Admin']], function () {
-    Route::get('user', [UsersAdminController::class, 'index'])->name('user.index');
+    Route::resource('user', UsersAdminController::class);
 });
-
-//route mengarah ke halaman profile pengembang
-Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');
-
-// Progres Proyek Routes
-Route::resource('progres', ProgresProyekAdminController::class)->middleware('checkislogin');
 
 // Routes untuk upload dan manajemen foto
 Route::post('/progres-proyek/{id}/upload-foto', [ProgresProyekAdminController::class, 'uploadFoto'])->name('progres-proyek.uploadFoto');
@@ -79,7 +82,6 @@ Route::delete('/lokasi-proyek/{lokasiId}/hapus-dokumen/{dokumenId}', [LokasiProy
 Route::get('/lokasi-proyek/{lokasiId}/download-dokumen/{dokumenId}', [LokasiProyekAdminController::class, 'downloadDokumen'])->name('lokasi-proyek.downloadDokumen');
 Route::post('/lokasi-proyek/{lokasiId}/update-caption/{dokumenId}', [LokasiProyekAdminController::class, 'updateCaption'])->name('lokasi-proyek.updateCaption');
 
-// Kontraktor Proyek Routes
-Route::resource('kontraktor', KontraktorAdminController::class)->middleware('checkislogin');
+
 
 
