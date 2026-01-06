@@ -43,8 +43,8 @@
                                         <option value="Admin" {{ request('role') == 'Admin' ? 'selected' : '' }}>
                                             Admin
                                         </option>
-                                        <option value="Guest" {{ request('role') == 'Guest' ? 'selected' : '' }}>
-                                            Guest
+                                        <option value="User" {{ request('role') == 'User' ? 'selected' : '' }}>
+                                            User
                                         </option>
                                     </select>
                                 </div>

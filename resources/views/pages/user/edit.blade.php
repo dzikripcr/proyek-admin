@@ -92,9 +92,9 @@
                                                 <option value="Admin" {{ $dataUser->role == 'Admin' ? 'selected' : '' }}>
                                                     Admin
                                                 </option>
-                                                <option value="Company"
-                                                    {{ $dataUser->role == 'Company' ? 'selected' : '' }}>
-                                                    Company
+                                                <option value="User"
+                                                    {{ $dataUser->role == 'User' ? 'selected' : '' }}>
+                                                    User
                                                 </option>
                                             </select>
                                         </div>
